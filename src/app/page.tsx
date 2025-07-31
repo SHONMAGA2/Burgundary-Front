@@ -9,6 +9,8 @@ return(
 <input type="email" name="email" placeholder="enter your email"/>
 <input type="password" name="password" placeholder="enter your password"/>
 </form>
+<p>Counter button for fun</p>
+<Button />
 </>
 );
 }
