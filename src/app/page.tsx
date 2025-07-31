@@ -10,3 +10,5 @@ return(
 <input type="password" name="password" placeholder="enter your password"/>
 </form>
 </>
+);
+}
