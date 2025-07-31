@@ -8,6 +8,7 @@ return(
 <input type="text" name="name" placeholder="enter your name"/>
 <input type="email" name="email" placeholder="enter your email"/>
 <input type="password" name="password" placeholder="enter your password"/>
+<button type="submit">Send</button>
 </form>
 <p>Counter button for fun</p>
 <Button />
