@@ -20,6 +20,7 @@ console.error("Something went wrong",error.message);
 export default function homeLayout({children}:{children:React.ReactNode}){
 return(
 <>
+Data()
 <div className="p-4">
 {children}
 
