@@ -14,10 +14,7 @@ const response = await fetch("https://burgundary-api-8dpz.onrender.com/api/SignU
 if(!response.ok) throw new Error(`HTTP Error could not retrieve data: ${response.status}`);
 
 const data = await response.json();
-const cleanData = JSON.stringify(data,null,2);
-
-setCleanData(cleanData);
-
+setCleanDataJSON.stringify(data,null,2);
 
 }catch(error){
 console.error("Something went wrong",error.message);
@@ -37,7 +34,7 @@ return(
 <div className = " display">
 
 </div>
-{cleanData}
+<pre>{cleanData}</pre>
 </div>
 </>
 )
