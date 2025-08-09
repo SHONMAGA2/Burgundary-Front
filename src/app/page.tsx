@@ -1,4 +1,3 @@
-import Button from '../components/button';
 
 export default function login(){
 return(
@@ -10,8 +9,9 @@ return(
 <input type="password" name="password" placeholder="enter your password"/>
 <button type="submit">Send</button>
 </form>
-<p>Counter button for fun</p>
-<Button />
+
+
+
 </>
 );
 }
