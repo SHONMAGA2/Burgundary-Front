@@ -2,6 +2,8 @@
 
 import React,{useEffect,useState} from 'react';
 
+export default function homeLayout({children}:{children:React.ReactNode}){
+
 const [cleanData,setCleanData] = useState<string>("fetching data...");
 
 useEffect(() => {
@@ -26,7 +28,6 @@ setCleanData("Could not fetch data +_+");
 Data()
 },[]);
 
-export default function homeLayout({children}:{children:React.ReactNode}){
 return(
 <>
 <div className="p-4">
