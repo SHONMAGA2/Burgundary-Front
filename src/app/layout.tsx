@@ -2,7 +2,7 @@
 
 import React,{useEffect,useState} from 'react';
 
-export default function homeLayout({children}:{children:React.ReactNode}){
+export default function HomeLayout({children}:{children:React.ReactNode}){
 
 const [cleanData,setCleanData] = useState<string>("fetching data...");
 
@@ -14,7 +14,7 @@ const response = await fetch("https://burgundary-api-8dpz.onrender.com/api/SignU
 if(!response.ok) throw new Error(`HTTP Error could not retrieve data: ${response.status}`);
 
 const data = await response.json();
-setCleanDataJSON.stringify(data,null,2);
+setCleanData(JSON.stringify(data,null,2));
 
 }catch(error){
 console.error("Something went wrong",error.message);
