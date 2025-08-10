@@ -33,7 +33,7 @@ return(
 <div className = " display">
 </div>
 
-<p>Account created!, copy your token down below.<p>
+<p>Account created!, copy your token down below.</p>
 <pre>{cleanData}</pre>
 </div>
 </>
