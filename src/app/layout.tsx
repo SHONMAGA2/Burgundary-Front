@@ -17,9 +17,15 @@ const data = await response.json();
 setCleanData(JSON.stringify(data,null,2));
 
 }catch(error){
+
+if(error instanceof Error){
 console.error("Something went wrong",error.message);
+}else{
+console.error("something went wrong",error);
+}
 setCleanData("Could not fetch data +_+");
 }
+
 }
 
 Data()
