@@ -10,7 +10,13 @@ const [page,setPage] = useState(null);
 useEffect(() => {
 async function Data(){
 try{
-const response = await fetch("https://burgundary-api-8dpz.onrender.com/api/SignUp");
+const response = await fetch("https://burgundary-api-8dpz.onrender.com/api/SignUp",{
+method:"GET",
+credentials: 'include',
+headers:{"Content-Type: application/json"
+}
+}
+);
 
 if(!response.ok) throw new Error(`HTTP Error could not retrieve data: ${response.status}`);
 
