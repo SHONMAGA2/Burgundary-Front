@@ -13,7 +13,7 @@ try{
 const response = await fetch("https://burgundary-api-8dpz.onrender.com/api/SignUp",{
 method:"GET",
 credentials: 'include',
-headers:{"Content-Type: application/json"
+headers:{"Content-Type" : "application/json"
 }
 }
 );
