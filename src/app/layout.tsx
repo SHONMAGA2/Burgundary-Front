@@ -5,6 +5,7 @@ import React,{useEffect,useState} from 'react';
 export default function HomeLayout({children}:{children:React.ReactNode}){
 
 const [cleanData,setCleanData] = useState<string>("fetching data...");
+const [page,setPage] = useState(null);
 
 useEffect(() => {
 async function Data(){
@@ -39,8 +40,12 @@ return(
 <div className = " display">
 </div>
 
-<p>Account created!, copy your token down below.</p>
+{cleanData && (
+<>
+<p>Account Created!, copy your token below</p>}
 <pre>{cleanData}</pre>
+</>
+)}
 </div>
 </>
 )
