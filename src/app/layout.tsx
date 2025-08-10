@@ -30,10 +30,10 @@ return(
 <div className="p-4">
 
 {children}
-
 <div className = " display">
-
 </div>
+
+<p>Account created!, copy your token down below.<p>
 <pre>{cleanData}</pre>
 </div>
 </>
