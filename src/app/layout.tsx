@@ -48,7 +48,7 @@ return(
 
 {cleanData && (
 <>
-<p>Account Created!, copy your token below</p>}
+<p>Account Created!, copy your token below</p>
 <pre>{cleanData}</pre>
 </>
 )}
