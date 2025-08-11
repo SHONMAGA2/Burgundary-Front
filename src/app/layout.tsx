@@ -4,8 +4,7 @@ import React,{useEffect,useState} from 'react';
 
 export default function HomeLayout({children}:{children:React.ReactNode}){
 
-const [cleanData,setCleanData] = useState<string>("fetching data...");
-const [page,setPage] = useState(null);
+const [cleanData,setCleanData] = useState(null);
 
 useEffect(() => {
 async function Data(){
