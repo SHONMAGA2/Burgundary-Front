@@ -2,39 +2,45 @@
 
 import React,{useEffect,useState} from 'react';
 
+interface SignUp {
+message:string,
+token:string
+
+}
+
 export default function HomeLayout({children}:{children:React.ReactNode}){
 
-const [cleanData,setCleanData] = useState<string | null>(null);
+const [data,setData] = useState<SignUp | null>(null);
 
 useEffect(() => {
-async function Data(){
+async function getData():Promise<void>{
 try{
-const response = await fetch("https://burgundary-api-8dpz.onrender.com/api/SignUp",{
+const request =
+ await 
+fetch("https://burgundary-api-8dpz.onrender.com/api/SignUp",{
 method:"GET",
-credentials: 'include',
-headers:{"Content-Type" : "application/json"
-}
-}
-);
+credentials:"include"
+});
 
-if(!response.ok) throw new Error(`HTTP Error could not retrieve data: ${response.status}`);
-
-const data = await response.json();
-setCleanData(JSON.stringify(data,null,2));
+if(request.ok){
+const data:SignUp = await request.json();
+setData(data);
+}
 
 }catch(error){
 
-if(error instanceof Error){
+if (error instanceof Error){
 console.error("Something went wrong",error.message);
-}else{
-console.error("something went wrong",error);
-}
-setCleanData("Could not fetch data +_+");
-}
 
 }
+else{
+console.error("Something went wrong",error);
+}
+}
+}
 
-Data()
+getData();
+
 },[]);
 
 return(
@@ -45,13 +51,14 @@ return(
 <div className = " display">
 </div>
 
-{cleanData && (
+{data && (
 <>
 <p>Account Created!, copy your token below</p>
-<pre>{cleanData}</pre>
+<pre>{data.token}</pre>
 </>
 )}
 </div>
 </>
 )
 }
+
