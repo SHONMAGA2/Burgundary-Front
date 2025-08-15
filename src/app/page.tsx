@@ -1,55 +1,46 @@
 'use client';
 
-import {useRef,useEffect} from 'react';
+import {useRef,useState} from 'react';
 
-export default async function login(){
+export default function SignUp(){
 
-const nameRef = useRef(null);
-const emailRef = useRef(null);
-const passwordRef = useRef(null);
+const nameRef = useRef<HTMLInputElement>(null);
+const emailRef = useRef<HTMLInputElement>(null);
+const passwordRef = useRef<HTMLInputElement>(null);
 
+const [token,setToken] = useState<string | null>(null);
 
+const formSubmit = async (e:React.FormEvent) =>{
+e.preventDefault();
 
-useEffect(() =>{
-
-let data: {
-name:string,
-email:string,
-password:string
+const data = {
+name:nameRef.current?.value || "",
+email:emailRef.current?.value || "",
+password:passwordRef.current?.value || ""
 };
 
-
-const Name =  nameRef.current.value;
-const Email = emailRef.current.value;
-const Password = password.current.value;
-
-data = {
-name:Name,
-email:Email,
-password:Password
-};
-
-await fetch("https://burgundary-api-8dpz.onrender.com/SignUp"{
+try{
+const response = await
+fetch("https://burgundary-api-8dpz.onrender.com/SignUp",{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
 },
 body:JSON.stringify(data),
 credentials:"include"
-})
-.then((response) =>{
-const token = response.data.token;
-})
-
-.catch((error) =>{
-console.error(error);
 });
 
-return token;
+const json= await response.json();
+setToken(json.token)
 
-},[]);
+}catch(error){
+console.error(error);
+}
+};
 
 const copy = () =>{
+if(!token) return;
+
 navigator.clipboard.writeText(token)
 .then(() => alert("Copied!"))
 .catch(() => alert("Failed to copy!"));
@@ -60,7 +51,7 @@ return(
 <div>
 <h1>SignUp</h1>
 
-<form id="form input">
+<form onSubmit = {formSubmit}>
 <input type="text" ref={nameRef} name="name" placeholder="enter your name"/>
 
 <input type="email" ref={emailRef} name="email" placeholder="enter your email"/>
@@ -70,13 +61,13 @@ return(
 <button type="submit">Send</button>
 </form>
 
-<div ref={loadOut}>
+<div>
 
 {token &&(
-<>
+<div>
  <pre> {token} </pre>
 <button onClick={copy}>Copy Token</button>
-
+</div>
 )}
 
 </div>
