@@ -9,9 +9,11 @@ const emailRef = useRef<HTMLInputElement>(null);
 const passwordRef = useRef<HTMLInputElement>(null);
 
 const [token,setToken] = useState<string | null>(null);
+const [loading,setLoading] = useState(false); 
 
 const formSubmit = async (e:React.FormEvent) =>{
 e.preventDefault();
+setLoading(true);
 
 const data = {
 name:nameRef.current?.value || "",
@@ -35,7 +37,10 @@ setToken(json.token)
 
 }catch(error){
 console.error(error);
+}finally{
+setLoading(false);
 }
+
 };
 
 const copy = () =>{
@@ -58,7 +63,7 @@ return(
 
 <input type="password" ref={passwordRef} name="password" placeholder="enter your password"/>
 
-<button type="submit">Send</button>
+<button type="submit" disabled={loading}>{loading ? "Sending...":"Send"}</button>
 </form>
 
 <div>
