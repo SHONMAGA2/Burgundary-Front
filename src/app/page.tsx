@@ -33,7 +33,8 @@ credentials:"include"
 });
 
 const json= await response.json();
-setToken(json.token)
+console.log(json);
+setToken(json.token);
 
 }catch(error){
 console.error(error);
