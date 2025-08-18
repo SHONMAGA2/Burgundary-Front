@@ -23,7 +23,7 @@ password:passwordRef.current?.value || ""
 
 try{
 const response = await
-fetch("https://burgundary-api-8dpz.onrender.com/SignUp",{
+fetch("https://burgundary-api-8dpz.onrender.com/api/SignUp",{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
