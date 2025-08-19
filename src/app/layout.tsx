@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link's;
+import Link from 'next/link';
 
 export default function HomeLayout({children}:{children:React.ReactNode}){
 
