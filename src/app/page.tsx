@@ -71,7 +71,7 @@ return(
 
 {token &&(
 <div>
- <pre> {token} </pre>
+ <pre>{token}</pre>
 <button onClick={copy}>Copy Token</button>
 </div>
 )}
