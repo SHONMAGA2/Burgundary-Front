@@ -13,6 +13,7 @@ const [loading,setLoading] = useState(false);
 
 const formSubmit = async (e:React.FormEvent) =>{
 e.preventDefault();
+console.log("Form submitted");
 setLoading(true);
 
 const data = {
@@ -22,19 +23,8 @@ password:passwordRef.current?.value || ""
 };
 
 try{
-const response = await
-fetch("https://burgundary-api-8dpz.onrender.com/api/SignUp",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data),
-credentials:"include"
-});
-
-const json= await response.json();
-console.log(json);
-setToken(json.token);
+console.log("Data is being sent",data);
+alert(JSON.stringify(data));
 
 }catch(error){
 console.error(error);
