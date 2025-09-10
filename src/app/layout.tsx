@@ -16,7 +16,7 @@ return(
 
     </ul>
 
-    <p>remember your token last for 5 hours! You can get a new one afterwards here <Link href="/refresh">Refresh Token</Link>
+    <p>Remember your token last for 5 hours! You can get a new one afterwards here <Link href="/refresh">Refresh Token</Link>
 
     </p>
     </div>
