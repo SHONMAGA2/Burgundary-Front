@@ -7,7 +7,7 @@ export default function HomeLayout({children}:{children:React.ReactNode}){
 
 return(
     <div className="p-4">
-    {children}
+    <main>{children}</main>
     <p>endpoints you can use with your given token:</p>
 
     <ul>
